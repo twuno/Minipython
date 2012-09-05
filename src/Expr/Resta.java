@@ -4,26 +4,25 @@
  */
 package Expr;
 
-import ASTNODE.ASTNode;
-import Expr.BinaryExp;
+import java.awt.image.RescaleOp;
 
 /**
  *
  * @author uno
  */
-public class AddBinaryExp extends BinaryExp{
-
-    public AddBinaryExp(int linea, ASTNode val1, ASTNode val2)
+public class Resta extends BinaryExp {
+    
+    public Resta(int linea, Expr val1, Expr val2 )
     {
         super(val1, val2);
         this.line=linea;
     }
-    
     @Override
     public String toString() {
-        String str="suma";
+            String str="Resta";
         return str;
-        //throw new UnsupportedOperationException("Not supported yet.");
+     
+ //       throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }
