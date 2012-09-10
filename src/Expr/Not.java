@@ -8,12 +8,12 @@ package Expr;
  *
  * @author uno
  */
-public class Not extends UnaryExp{
-    Expr exp;
+public class Not extends BinaryExp{
+    Expr exp,exp2;
     
-    public Not(int linea, Expr exp)
+    public Not(int linea, Expr exp,Expr exp2)
     {
-         super(exp);
+         super(exp,exp2);
          this.line=linea;
        
     }

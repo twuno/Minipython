@@ -9,10 +9,10 @@ package ASTNODE;
  * @author uno
  */
  public class FieldDeclNode extends ASTNode{
-    private String varName;
+    private ASTNode varName;
     private ASTNode right;
     
-     public FieldDeclNode(int  line, String name, ASTNode right)
+     public FieldDeclNode(int  line, ASTNode name, ASTNode right)
     {
         this.line=line;
         this.varName=name;

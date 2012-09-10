@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author uno
  */
-class ProgramNode extends ASTNode{
+public class ProgramNode extends ASTNode{
     private String name;
    private ArrayList<ASTNode> field_decl_list;
    private ArrayList<ASTNode> method_decl_list;

@@ -5,11 +5,12 @@
 package LeftValue;
 
 import ASTNODE.ASTNode;
+import Expr.Expr;
 
 /**
  *
  * @author uno
  */
-public abstract class leftValue extends ASTNode{
+public abstract class leftValue extends Expr{
     
 }
