@@ -13,14 +13,16 @@ public class Distinto extends BinaryExp{
     
     public Distinto(int linea, Expr exp1, Expr exp2)
     {
-         this.exp1=exp1;
+       this.exp1=exp1;
        this.exp2=exp2;
-        this.line=linea;
+       this.line=linea;
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        String value;
+        value = "Expresion Binaria que dice si dos expresiones son distintas";
+        return value;
     }
     
 }
