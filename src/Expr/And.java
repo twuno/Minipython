@@ -13,8 +13,9 @@ public class And extends BinaryExp{
     
     public And(int linea, Expr exp1, Expr exp2)
     {
-        super(exp1, exp2);
-        this.line=linea;
+      this.exp1=exp1;
+       this.exp2=exp2;
+       this.line=linea;
     }
 
     @Override

@@ -12,7 +12,7 @@ public class menosExpr extends UnaryExp{
 Expr e;
 public menosExpr(int linea, Expr e)
 {
-    super(e);
+    this.e=e;
     this.line=linea;
 }
     @Override

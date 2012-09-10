@@ -11,11 +11,12 @@ import java.awt.image.RescaleOp;
  * @author uno
  */
 public class Resta extends BinaryExp {
-    
-    public Resta(int linea, Expr val1, Expr val2 )
+    Expr exp1,exp2;
+    public Resta(int linea, Expr exp1, Expr exp2 )
     {
-        super(val1, val2);
-        this.line=linea;
+ this.exp1=exp1;
+       this.exp2=exp2;
+              this.line=linea;
     }
     @Override
     public String toString() {

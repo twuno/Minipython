@@ -9,12 +9,13 @@ package Expr;
  * @author uno
  */
 public class Not extends BinaryExp{
-    Expr exp,exp2;
+    Expr exp1,exp2;
     
-    public Not(int linea, Expr exp,Expr exp2)
+    public Not(int linea, Expr exp1,Expr exp2)
     {
-         super(exp,exp2);
-         this.line=linea;
+ this.exp1=exp1;
+       this.exp2=exp2;
+               this.line=linea;
        
     }
 

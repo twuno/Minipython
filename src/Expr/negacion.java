@@ -13,8 +13,8 @@ Expr e;
 
 public negacion(int linea,Expr e)
 {
-    super(e);
-    this.line=linea;
+this.e=e;
+this.line=linea;
 }
     @Override
     public String toString() {

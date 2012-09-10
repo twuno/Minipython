@@ -13,7 +13,8 @@ public class MayorQue extends BinaryExp{
     
     public MayorQue(int linea, Expr exp1, Expr exp2)
     {
-        super(exp1, exp2);
+       this.exp1=exp1;
+       this.exp2=exp2;
         this.line=linea;
     }
 

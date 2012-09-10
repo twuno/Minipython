@@ -9,10 +9,12 @@ package Expr;
  * @author uno
  */
 public class Multiplicacion extends BinaryExp{
-public Multiplicacion(int linea, Expr v1, Expr v2)
+    Expr exp1, exp2;
+public Multiplicacion(int linea, Expr exp1, Expr exp2)
 {
-    super(v1, v2);
-    line=linea;
+ this.exp1=exp1;
+       this.exp2=exp2;
+          line=linea;
     
 }
     @Override

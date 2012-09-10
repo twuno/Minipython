@@ -255,7 +255,7 @@ public class sintaxer {
     {
         int pos = lex.getlinea();
         String id=null;
-        BinaryExp r;
+        rango r;
         ASTNode bl;
         match(token.KW_FOR);
         if(currentToken.getType()==token.KW_ID)
@@ -268,7 +268,7 @@ public class sintaxer {
         r=range();
         match(token.SIG_DP);
         bl=block();
-    ForStatement f = new ForStatement(pos,id,r.getExpr1(),r.getExpr2(),bl);
+    ForStatement f = new ForStatement(pos,id,r.getE1(),r.getE2(),bl);
     return f;
     }else if(currentToken.getType()==token.KW_RETURN)
     {
@@ -546,9 +546,9 @@ public class sintaxer {
         match(token.V_DDENT);
     }
 
-    private BinaryExp range() throws Exception
+    private rango range() throws Exception
     {
-            BinaryExp BE;  
+            rango BE;  
             Expr e1,e2;  
             e1=expr();
             match(token.SIG_RANGO);

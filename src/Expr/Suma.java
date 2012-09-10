@@ -10,10 +10,12 @@ package Expr;
  * @author uno
  */
 public class Suma extends BinaryExp{
-
-    public Suma(int linea, Expr val1, Expr val2)
+Expr exp1, exp2;
+    public Suma(int linea, Expr exp1, Expr exp2)
     {
-        super(val1, val2);
+      this.exp1=exp1;
+       this.exp2=exp2;
+      
         this.line=linea;
     }
     
