@@ -13,9 +13,9 @@ public class Division extends BinaryExp{
     
      public Division(int linea, Expr exp1, Expr exp2)
      {
- this.exp1=exp1;
+       this.exp1=exp1;
        this.exp2=exp2;
-               this.line=linea;
+       this.line=linea;
      }
 
     @Override
