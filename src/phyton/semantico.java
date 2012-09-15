@@ -13,8 +13,11 @@ import LeftValue.leftValue;
 import TablaSimbolo.Funcion;
 import TablaSimbolo.Value;
 import TablaSimbolo.Var;
+import TablaSimbolo.tablasimbolos;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.Map;
 
 /**
  *
@@ -23,7 +26,7 @@ import java.util.Hashtable;
 public class semantico {
     ASTNode raiz;
     ProgramNode program;
-    Hashtable<leftValue, Value> tablasimbolos= new Hashtable<leftValue, Value>();
+    
 
     public semantico(ASTNode raiz) throws Exception {
         this.raiz = raiz;
@@ -31,7 +34,7 @@ public class semantico {
         Semanticando();
     }
 
-    private void Semanticando() throws Exception{
+       private void Semanticando() throws Exception{
         if(!tienemain())
         {
             throw new Exception("No tiene main");
@@ -43,52 +46,41 @@ public class semantico {
         leftValue lv = (leftValue)fd.getVarName();
         Expr e=(Expr)fd.getRight();        
         Value vl = new Var(e.ValidarSemantica(),e);
-        add(lv, vl);
+        tablasimbolos.getinstance().add(lv, vl);
     }
+    Value va=tablasimbolos.getinstance().lookat("a");
   ArrayList<ASTNode> listmd=  program.getMethod_decl_list();    
-    for(int x=0; x<listfd.size();x++)
+    for(int x=0; x<listmd.size();x++)
     {
-        FieldDeclNode fd = (FieldDeclNode)listfd.get(x);
-        leftValue lv = (leftValue)fd.getVarName();
+        MethodDeclNode md = (MethodDeclNode)listmd.get(x);
+        leftValue Nombre = md.getMethodName();
+       /*
         Expr e=(Expr)fd.getRight();        
-        Value vl = new Var(e.ValidarSemantica(),e);
-        add(lv, vl);
+   */
+       Funcion fn = new Funcion(null, null, null);
+        tablasimbolos.getinstance().add(Nombre, fn);
+   
+        
     }
     }
     
-    public void add(leftValue lv, Value val) throws Exception
+    public Hashtable llenarParametros(leftValue Methodname)// aun no lo termino
     {
-        Value v= tablasimbolos.get(lv);
-        if(v==null){
-        this.tablasimbolos.put(lv, val);
-        }else
-        {
-            if(v.esEquivalente(val))
+        Hashtable<leftValue,Var> parametros = new Hashtable<leftValue, Var>();
+         ArrayList<ASTNode> listmd=  program.getMethod_decl_list();
+           for(int x=0; x<listmd.size();x++)
             {
-                if(v instanceof Var)
-                {
-                    Var v1=(Var)v;
-                    Var v2=(Var)val;
-                    
-                    if(v1.getTipo().Equivalente(v2.getTipo()))
-                    {
-                        tablasimbolos.remove(lv);
-                        tablasimbolos.put(lv, val);
-                    }else
-                    {
-                        throw new Exception("No puede cambiar el tipo de esta variable");
-                    }
-                }else if(v instanceof Funcion)
-                {
-                              throw new Exception("No Puede sobre cargar esta funcion");
-                }
-            }else
-            {
-                throw new Exception("no se puede declarar una funcion con el nombre de una variable");
+                 MethodDeclNode md = (MethodDeclNode)listmd.get(x);    
+                 if(md.getMethodName().NombreVar().compareToIgnoreCase(Methodname.NombreVar())==0)
+                 {
+                     md.getArguments();
+                 }
             }
-        }
-    }
-    
+        
+        
+        return parametros;
+    } 
+   
     
     public boolean tienemain()
     {
@@ -98,7 +90,7 @@ public class semantico {
         {
 
             MethodDeclNode md = (MethodDeclNode)list.get(x);  
-            if(md.getMethodName().compareToIgnoreCase("main")==0){
+            if(md.getMethodName().NombreVar().compareToIgnoreCase("main")==0){
             return true;
             }
         }

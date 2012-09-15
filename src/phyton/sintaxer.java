@@ -142,11 +142,14 @@ public class sintaxer {
         String id=null;
         ArrayList<String> param = new ArrayList<String>();
         BlockNode bl;
+        int pos = lex.getlinea();
+        SimpleLeftValue slv;
         match(token.KW_DEF);
         //match(token.KW_ID);
         if (currentToken.getType()==token.KW_ID)
         {
         id = currentToken.getLexema();
+        slv= new SimpleLeftValue(pos, id);
         currentToken=lex.getNextToken();
         }else
         {
@@ -179,7 +182,7 @@ public class sintaxer {
         }       
         match(token.SIG_DP);
        bl= block();
-       md=new MethodDeclNode(lex.getlinea(), id, param, bl);
+       md=new MethodDeclNode(lex.getlinea(), slv, param, bl);
        return md;
     }
 
