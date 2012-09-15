@@ -9,6 +9,7 @@ import Expr.ExpP;
 import Expr.Expr;
 import Expr.ExpresionCorchetes;
 import Expr.Igual;
+import Expr.Number;
 import Expr.LeftValueExpr;
 import Expr.MayorIgual;
 import Expr.MayorQue;
@@ -60,7 +61,7 @@ public class sintaxer {
     InputStream in;
     lexer lex;
     token currentToken;
-
+    ASTNode node;
     public sintaxer()
     {
         in=null;
@@ -74,12 +75,13 @@ public class sintaxer {
         } catch (Exception ex) {
             Logger.getLogger(sintaxer.class.getName()).log(Level.SEVERE, null, ex);
         }
-        program();
+       node= program();
 
     }
 
     private ProgramNode program() throws IOException, Exception
     {
+        int linea =lex.getlinea();
       ProgramNode pm;
       match(token.KW_CLASS);
       String id;
@@ -107,7 +109,7 @@ public class sintaxer {
         mdecl.add(method_decl());
       }
       FinBloque();
-      pm=new ProgramNode(lex.getlinea(), id, fdecl, mdecl);
+      pm=new ProgramNode(linea, id, fdecl, mdecl);
       return pm;
     }
 
@@ -648,9 +650,10 @@ public class sintaxer {
              return st;
         }else if(currentToken.getType()==token.LIT_NUM)
         {
-             id=currentToken.getLexema();
+             int ide;
+                    ide =Integer.parseInt(currentToken.getLexema());
              currentToken = lex.getNextToken();
-             StringConstant st =new StringConstant(id, pos);
+             Number st =new Number(pos,ide);
            return st;
         }else if(currentToken.getType()==token.KW_FALSE || currentToken.getType()==token.KW_TRUE)
         {
