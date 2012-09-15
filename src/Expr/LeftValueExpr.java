@@ -5,6 +5,7 @@
 package Expr;
 
 import ASTNODE.ASTNode;
+import type.Tipo;
 
 /**
  *
@@ -24,6 +25,16 @@ public class LeftValueExpr extends Expr {
         return str;
         
         //       throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Tipo ValidarSemantica() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

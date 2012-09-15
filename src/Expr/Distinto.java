@@ -4,6 +4,9 @@
  */
 package Expr;
 
+import type.BoolType;
+import type.Tipo;
+
 /**
  *
  * @author uno
@@ -24,5 +27,19 @@ public class Distinto extends BinaryExp{
         value = "Expresion Binaria que dice si dos expresiones son distintas";
         return value;
     }
-    
+
+    @Override
+      public Tipo ValidarSemantica()throws Exception {
+        BoolType t= new BoolType();
+       if(exp1.ValidarSemantica().Equivalente(t) && exp1.ValidarSemantica().Equivalente(t))
+       {
+           return t;
+       }  
+       throw new Exception("Este and no contiene los tipos correctos");
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

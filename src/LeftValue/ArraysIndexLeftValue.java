@@ -5,6 +5,8 @@
 package LeftValue;
 
 import ASTNODE.ASTNode;
+import Expr.ExpP;
+import type.Tipo;
 
 /**
  *
@@ -24,6 +26,16 @@ public class ArraysIndexLeftValue extends leftValue {
         String str="Indice pa un Arreglo";
         return str;
         //        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Tipo ValidarSemantica() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     

@@ -4,6 +4,9 @@
  */
 package Expr;
 
+import type.BoolType;
+import type.Tipo;
+
 /**
  *
  * @author uno
@@ -20,6 +23,21 @@ public class ShiftLeft extends BinaryExp{
 
     @Override
     public String toString() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Tipo ValidarSemantica() throws Exception {
+    BoolType b=new BoolType();
+        if(exp1.ValidarSemantica().Equivalente(exp2.ValidarSemantica())&& exp1.ValidarSemantica().Equivalente(b)){
+            return b;
+        }else
+        {
+            throw new Exception("Los tipos evaluados no son equivalente");
+        }    }
+
+    @Override
+    public ExpP Eval() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

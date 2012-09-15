@@ -1,20 +1,16 @@
-class hola:
-       x=10
-       y=11
-       z=x-y
-       def main:
-               for x in y...15:
-                       if (x>3) or (x<4):
-                               print m
-                       elif x<0:
-                               print y
-                       else:
-                               print m
-               x=9
+class GreatestCommonDivisor:
+	a = 10+30+50
+	b = 20
+	R[4]=77
 
-               print "adios"
+	def main:
+		x = a
+		y = b
+		z = gcd (x , y)
+		print z
 
-       def hola(x):
-               main()
-       def terwal(x):
-               main()
+    def gcd (a, b):
+		if b == 0:
+			return a
+		else:
+			return gcd (b, a % b)

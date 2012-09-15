@@ -4,6 +4,9 @@
  */
 package Expr;
 
+import type.BoolType;
+import type.Tipo;
+
 /**
  *
  * @author uno
@@ -22,6 +25,18 @@ public Bool(int linea,boolean val)
         return str;
         //      throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public Tipo ValidarSemantica() {
+        BoolType b= new BoolType();
+        return b;
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     
     
 }

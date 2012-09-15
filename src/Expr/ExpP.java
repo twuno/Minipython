@@ -4,11 +4,13 @@
  */
 package Expr;
 
+import type.Tipo;
+
 /**
  *
  * @author uno
  */
-public class ExpP extends Expr{
+public class ExpP extends Expr{  //validar semantica
 private Expr expr;
     public ExpP(Expr expr) {
         this.expr=expr;
@@ -34,6 +36,16 @@ private Expr expr;
      */
     public void setExpr(Expr expr) {
         this.expr = expr;
+    }
+
+    @Override
+    public Tipo ValidarSemantica() throws Exception {
+       return expr.ValidarSemantica();
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

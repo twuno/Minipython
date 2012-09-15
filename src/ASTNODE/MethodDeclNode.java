@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * @author uno
  */
 public class MethodDeclNode extends ASTNode{
-    String MethodName;
-    ArrayList<String> Arguments;
-    ASTNode block;
+    private String MethodName;
+    private ArrayList<String> Arguments;
+    private ASTNode block;
     
 public MethodDeclNode(int line, String MethodName, ArrayList<String> Arguments, ASTNode block)
 {
@@ -32,10 +32,52 @@ public MethodDeclNode(int line, String MethodName, ArrayList<String> Arguments, 
     @Override
     public String toString() {
             String retu;
-            retu= "Metodo llamado: "+MethodName + " Empieza en la linea "+Integer.toString(line);
+            retu= "Metodo llamado: "+getMethodName() + " Empieza en la linea "+Integer.toString(line);
             return retu; 
                     
             //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @return the MethodName
+     */
+    public String getMethodName() {
+        return MethodName;
+    }
+
+    /**
+     * @param MethodName the MethodName to set
+     */
+    public void setMethodName(String MethodName) {
+        this.MethodName = MethodName;
+    }
+
+    /**
+     * @return the Arguments
+     */
+    public ArrayList<String> getArguments() {
+        return Arguments;
+    }
+
+    /**
+     * @param Arguments the Arguments to set
+     */
+    public void setArguments(ArrayList<String> Arguments) {
+        this.Arguments = Arguments;
+    }
+
+    /**
+     * @return the block
+     */
+    public ASTNode getBlock() {
+        return block;
+    }
+
+    /**
+     * @param block the block to set
+     */
+    public void setBlock(ASTNode block) {
+        this.block = block;
     }
     
 }

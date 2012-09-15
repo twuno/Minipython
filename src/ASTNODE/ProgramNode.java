@@ -35,5 +35,47 @@ public class ProgramNode extends ASTNode{
         return ret;
         //throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the field_decl_list
+     */
+    public ArrayList<ASTNode> getField_decl_list() {
+        return field_decl_list;
+    }
+
+    /**
+     * @param field_decl_list the field_decl_list to set
+     */
+    public void setField_decl_list(ArrayList<ASTNode> field_decl_list) {
+        this.field_decl_list = field_decl_list;
+    }
+
+    /**
+     * @return the method_decl_list
+     */
+    public ArrayList<ASTNode> getMethod_decl_list() {
+        return method_decl_list;
+    }
+
+    /**
+     * @param method_decl_list the method_decl_list to set
+     */
+    public void setMethod_decl_list(ArrayList<ASTNode> method_decl_list) {
+        this.method_decl_list = method_decl_list;
+    }
     
 }

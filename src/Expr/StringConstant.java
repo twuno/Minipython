@@ -4,6 +4,8 @@
  */
 package Expr;
 
+import type.Tipo;
+
 /**
  *
  * @author uno
@@ -21,6 +23,16 @@ public StringConstant(String value, int linea)
         String str="String constant";
         return str;
         //        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Tipo ValidarSemantica() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

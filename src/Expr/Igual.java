@@ -4,6 +4,8 @@
  */
 package Expr;
 
+import type.Tipo;
+
 /**
  *
  * @author uno
@@ -20,6 +22,20 @@ public class Igual extends BinaryExp{
 
     @Override
     public String toString() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Tipo ValidarSemantica() throws Exception {
+        if(exp1.ValidarSemantica().Equivalente(exp2.ValidarSemantica()))
+        {
+            return exp1.ValidarSemantica();
+        }
+        throw new Exception("Comparacion entre distinto tipo de operadores");
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

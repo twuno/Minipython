@@ -35,5 +35,33 @@ package ASTNODE;
                 
         // throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    /**
+     * @return the varName
+     */
+    public ASTNode getVarName() {
+        return varName;
+    }
+
+    /**
+     * @param varName the varName to set
+     */
+    public void setVarName(ASTNode varName) {
+        this.varName = varName;
+    }
+
+    /**
+     * @return the right
+     */
+    public ASTNode getRight() {
+        return right;
+    }
+
+    /**
+     * @param right the right to set
+     */
+    public void setRight(ASTNode right) {
+        this.right = right;
+    }
     
 }

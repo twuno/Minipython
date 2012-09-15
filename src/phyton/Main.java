@@ -5,6 +5,7 @@
 
 package phyton;
 
+import ASTNODE.ASTNode;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,7 +33,9 @@ public class Main {
                                 System.exit(1);
                         }
                         sintaxer sin = new sintaxer(new BufferedInputStream(file));
-       /*               lexer lexer = new lexer(new BufferedInputStream(file));
+                        ASTNode n = sin.node;
+                        semantico sem= new semantico(n);
+                        /*               lexer lexer = new lexer(new BufferedInputStream(file));
                           token token = lexer.getNextToken();
 
                           do {

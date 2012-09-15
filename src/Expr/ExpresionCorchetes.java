@@ -5,6 +5,8 @@
 package Expr;
 
 import java.util.ArrayList;
+import type.IntType;
+import type.Tipo;
 
 /**
  *
@@ -37,6 +39,24 @@ public class ExpresionCorchetes extends Expr{
      */
     public void setParams(ArrayList<Expr> params) {
         this.params = params;
+    }
+
+    @Override
+    public Tipo ValidarSemantica() throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet.");
+        IntType i = new IntType();
+          for(int x=0; x<params.size();x++){
+            if(!params.get(x).ValidarSemantica().Equivalente(i))
+            {
+                throw new Exception("No es soportado un tipo booleano en esta expresion");
+            }
+            }   
+           return i;
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

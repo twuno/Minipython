@@ -5,14 +5,16 @@
 package Expr;
 
 import ASTNODE.ASTNode;
+import type.IntType;
+import type.Tipo;
 
 /**
  *
  * @author uno
  */
 public class rango extends BinaryExp{
-    private ASTNode e1;
-    private ASTNode e2;
+    private Expr e1;
+    private Expr e2;
 
 public rango(int line,Expr e1,Expr e2)
 {
@@ -37,7 +39,7 @@ public rango(int line,Expr e1,Expr e2)
     /**
      * @param e1 the e1 to set
      */
-    public void setE1(ASTNode e1) {
+    public void setE1(Expr e1) {
         this.e1 = e1;
     }
 
@@ -51,8 +53,24 @@ public rango(int line,Expr e1,Expr e2)
     /**
      * @param e2 the e2 to set
      */
-    public void setE2(ASTNode e2) {
+    public void setE2(Expr e2) {
         this.e2 = e2;
+    }
+
+    @Override
+    public Tipo ValidarSemantica() throws Exception {
+              IntType b=new IntType();
+        if(!e1.ValidarSemantica().Equivalente(e2.ValidarSemantica())&& e1.ValidarSemantica().Equivalente(b)){
+            {
+            throw new Exception("Los tipos evaluados no son equivalente");
+            }
+    }
+    return b;
+    }
+
+    @Override
+    public ExpP Eval() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }
