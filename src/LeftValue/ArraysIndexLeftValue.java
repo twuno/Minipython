@@ -5,7 +5,10 @@
 package LeftValue;
 
 import ASTNODE.ASTNode;
+import Expr.Bool;
 import Expr.ExpP;
+import Expr.Expr;
+import Expr.Number;
 import TablaSimbolo.Funcion;
 import TablaSimbolo.Value;
 import TablaSimbolo.Var;
@@ -18,15 +21,16 @@ import type.Tipo;
  * @author uno
  */
 public class ArraysIndexLeftValue extends leftValue {
-    String Varname;
-    ASTNode expr;
+    private String Varname;
+    private Expr expr;
     int scope;
     leftValue method;
-    public ArraysIndexLeftValue(int linea, String Varname, ASTNode exp)
+    public ArraysIndexLeftValue(String Varname, Expr exp)
     {
         this.Varname=Varname;
         this.expr=exp;
-        this.line=linea;
+        //this.lineak=linea;
+        //this.line=linea;
     }
     @Override
     public String toString() {
@@ -40,9 +44,10 @@ public class ArraysIndexLeftValue extends leftValue {
      //   throw new UnsupportedOperationException("Not supported yet.");
         Value v;
         if(this.scope==0){
-            v=tablasimbolos.getinstance().lookat(Varname);
+            ArraysIndexLeftValue a=new ArraysIndexLeftValue(getVarname(),(Expr)getExpr());
+            v=tablasimbolos.getinstance().lookat(a);
             if(v==null){
-                throw new Exception("La variable " + Varname + "no existe");
+                throw new Exception("La variable " + getVarname() +"["+getExpr()+ "] no existe");
             }else{
                 if(v instanceof Var)
                 {
@@ -60,9 +65,9 @@ public class ArraysIndexLeftValue extends leftValue {
         {
             Funcion f=(Funcion)tablasimbolos.getinstance().lookat(method);
             Hashtable t=f.getMinitabla();
-            if(t.contains(Varname))
+            if(t.contains(getVarname()))
             {
-                Var v2=(Var)t.get(Varname);
+                Var v2=(Var)t.get(getVarname());
                 return v2.getTipo();
             }else
             {
@@ -72,14 +77,11 @@ public class ArraysIndexLeftValue extends leftValue {
                 throw new Exception("Nivel de Scope no soportado");
     }
 
-    @Override
-    public ExpP Eval() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+
 
     @Override
     public String NombreVar() {
-        return Varname;
+        return getVarname();
     }
 
     @Override
@@ -87,6 +89,53 @@ public class ArraysIndexLeftValue extends leftValue {
         this.scope=Scope;
         this.method=Method;
         
+    }
+
+    /**
+     * @return the Varname
+     */
+    public String getVarname() {
+        return Varname;
+    }
+
+    /**
+     * @param Varname the Varname to set
+     */
+    public void setVarname(String Varname) {
+        this.Varname = Varname;
+    }
+
+    /**
+     * @return the expr
+     */
+    public Expr getExpr() {
+        return expr;
+    }
+
+    /**
+     * @param expr the expr to set
+     */
+    public void setExpr(Expr expr) {
+        this.expr = expr;
+    }
+
+    @Override
+    public int EvalI() throws Exception {
+        if(this.expr instanceof Number)//Creo ke esto no es lo ke se tiene ke devolver
+        {
+            return expr.EvalI();
+        }
+       throw new UnsupportedOperationException("Not supported yet.");
+        
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
+        if(expr instanceof Bool)
+        {
+        return expr.EvalB();
+        }
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     
