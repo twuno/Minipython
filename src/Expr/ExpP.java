@@ -43,9 +43,26 @@ private Expr expr;
        return expr.ValidarSemantica();
     }
 
+   
+
     @Override
-    public ExpP Eval() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int EvalI() throws Exception {
+      if(this.expr instanceof Number)
+      {
+          return expr.EvalI();
+      }else{
+         throw new UnsupportedOperationException("Not supported yet.");
+        }
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
+      if(this.expr instanceof Bool)
+      {
+          return expr.EvalB();
+      }else{
+         throw new UnsupportedOperationException("Not supported yet.");
+        }
     }
     
 }

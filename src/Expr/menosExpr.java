@@ -36,8 +36,14 @@ public menosExpr(int linea, Expr e)
     
     }
 
+
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
+    return(this.e.EvalI()-(this.e.EvalI()*2));
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

@@ -335,7 +335,7 @@ public class sintaxer {
         if(currentToken.getType()==token.SIG_CORCHETEIZ)
         {
             match(token.SIG_CORCHETEIZ);
-             ast=new ArraysIndexLeftValue(lex.getlinea(),id,expr());
+             ast=new ArraysIndexLeftValue(id,expr());
             match(token.SIG_CORCHETEDER);
             return ast;
         }

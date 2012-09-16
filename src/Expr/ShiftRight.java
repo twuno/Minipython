@@ -38,8 +38,16 @@ import type.Tipo;
         }
     }
 
+   
+
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
+        return (this.exp1.EvalI()<<this.exp2.EvalI());
+            //    throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

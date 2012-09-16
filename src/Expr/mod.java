@@ -41,8 +41,14 @@ public class mod extends BinaryExp{
     
     }
 
+
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
+           return (exp1.EvalI()%exp2.EvalI());
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

@@ -33,11 +33,16 @@ public Number(int linea, int Value)
     }
 
     @Override
-    public ExpP Eval() throws Exception {
-        
-        return null;
-        
-        
+    public int EvalI() throws Exception {
+        return Value;
+        //   throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    @Override
+    public boolean EvalB() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    
     
 }

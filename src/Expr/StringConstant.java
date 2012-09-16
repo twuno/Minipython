@@ -11,7 +11,7 @@ import type.Tipo;
  * @author uno
  */
 public class StringConstant extends Expr{
-String value;
+private String value;
 
 public StringConstant(String value, int linea)
 {
@@ -30,9 +30,30 @@ public StringConstant(String value, int linea)
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+  
+
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    /**
+     * @return the value
+     */
+    public String getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(String value) {
+        this.value = value;
     }
     
 }

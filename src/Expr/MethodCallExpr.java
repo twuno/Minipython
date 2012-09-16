@@ -35,8 +35,14 @@ public class MethodCallExpr extends Expr{
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+  
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

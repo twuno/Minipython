@@ -4,6 +4,7 @@
  */
 package TablaSimbolo;
 
+import LeftValue.ArraysIndexLeftValue;
 import LeftValue.leftValue;
 import java.util.Enumeration;
 import java.util.Hashtable;
@@ -49,10 +50,29 @@ Hashtable<leftValue, Value> tablasimbolos= new Hashtable<leftValue, Value>();
     }
  public Value lookat(leftValue nombre)
     {
-    return this.tablasimbolos.get(nombre); 
+  //  return this.tablasimbolos.get(nombre);
+    if(nombre instanceof ArraysIndexLeftValue)
+    {
+        ArraysIndexLeftValue arr = (ArraysIndexLeftValue) nombre;
+    Enumeration<leftValue> enu;
+    enu=tablasimbolos.keys();
+    for(Map.Entry<leftValue,Value> entry : tablasimbolos.entrySet())
+    {   
+            
+        leftValue value = entry.getKey();
+        if(value instanceof ArraysIndexLeftValue){
+            ArraysIndexLeftValue value2=(ArraysIndexLeftValue)value;
+            Value value1 = entry.getValue();
+        if(value2.NombreVar().equalsIgnoreCase(arr.NombreVar()) && value2.getExpr()==arr.getExpr())
     
+                return value1;
+    
+        }
     }
-     
+   
+    }
+     return null;
+    } 
       public void add(leftValue lv, Value val) throws Exception
     {
         Value v= tablasimbolos.get(lv);

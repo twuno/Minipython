@@ -14,5 +14,5 @@ import Expr.Expr;
 public abstract class leftValue extends Expr{
     public abstract String NombreVar();
     public abstract void SetScope(int Scope, leftValue Method);
-            
+             
 }

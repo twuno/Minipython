@@ -70,10 +70,7 @@ public class SimpleLeftValue extends leftValue{
                 throw new Exception("Nivel de Scope no soportado");
     }
 
-    @Override
-    public ExpP Eval() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+ 
 
     @Override
     public String NombreVar() {
@@ -84,6 +81,16 @@ public class SimpleLeftValue extends leftValue{
     public void SetScope(int Scope, leftValue Method) {
         this.Scope=Scope;
         this.method=Method;
+    }
+
+    @Override
+    public int EvalI() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

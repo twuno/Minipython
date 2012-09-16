@@ -38,8 +38,18 @@ public class MayorQue extends BinaryExp{
         }
 
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
+        if(exp1.EvalI()>exp2.EvalI())
+        {
+            return true;
+        }
+        return false;
+        //    throw new UnsupportedOperationException("Not supported yet.");
     }
     
 }

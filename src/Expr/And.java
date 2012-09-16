@@ -37,9 +37,16 @@ public class And extends BinaryExp{
        throw new Exception("Este and no contiene los tipos correctos");
     }
 
+ 
+
     @Override
-    public ExpP Eval() throws Exception {
-      return null;
+    public int EvalI() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
+        return (exp1.EvalB()&& exp2.EvalB());
     }
     
 }

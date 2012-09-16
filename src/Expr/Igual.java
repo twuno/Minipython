@@ -34,9 +34,36 @@ public class Igual extends BinaryExp{
         throw new Exception("Comparacion entre distinto tipo de operadores");
     }
 
+
+
     @Override
-    public ExpP Eval() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int EvalI() throws Exception {
+        
+           throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet.");
+     if(exp1 instanceof Bool)
+        {
+            if(exp1.EvalB()==exp2.EvalB())
+            {
+                return true;
+            }else 
+            {
+                return false;
+            }
+        }else
+        {
+            if(exp1.EvalI()==exp2.EvalI())
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
     }
     
 }

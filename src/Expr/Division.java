@@ -37,8 +37,21 @@ public class Division extends BinaryExp{
         // throw new UnsupportedOperationException("Not supported yet.");
     }
 
+ 
+
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
+        if(exp2.EvalI()!=0){
+      return(this.exp1.EvalI()/exp2.EvalI());
+        }else
+        {
+            throw new Exception("No se pueden realizar divisiones con denominador cero");
+        }
+        //  throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

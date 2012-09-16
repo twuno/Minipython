@@ -40,8 +40,16 @@ Expr exp1, exp2;
         }
     }
 
+ 
+
     @Override
-    public ExpP Eval() throws Exception {
+    public int EvalI() throws Exception {
+       return exp1.EvalI()+exp2.EvalI();
+        // throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public boolean EvalB() throws Exception {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     

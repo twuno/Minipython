@@ -13,5 +13,7 @@ import type.Tipo;
  */
 public abstract class Expr extends ASTNode {
     public abstract Tipo ValidarSemantica()throws Exception;
-        public abstract ExpP Eval()throws Exception;
+        public abstract int EvalI()throws Exception;
+        public abstract boolean EvalB()throws Exception;
+        
 }
