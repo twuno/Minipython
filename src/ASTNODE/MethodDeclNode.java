@@ -4,6 +4,7 @@
  */
 package ASTNODE;
 
+import LeftValue.SimpleLeftValue;
 import java.util.ArrayList;
 
 /**
@@ -11,11 +12,11 @@ import java.util.ArrayList;
  * @author uno
  */
 public class MethodDeclNode extends ASTNode{
-    private String MethodName;
+    private SimpleLeftValue MethodName;
     private ArrayList<String> Arguments;
     private ASTNode block;
     
-public MethodDeclNode(int line, String MethodName, ArrayList<String> Arguments, ASTNode block)
+public MethodDeclNode(int line, SimpleLeftValue MethodName, ArrayList<String> Arguments, ASTNode block)
 {
     this.line= line;
     this.MethodName=MethodName;
@@ -41,14 +42,14 @@ public MethodDeclNode(int line, String MethodName, ArrayList<String> Arguments, 
     /**
      * @return the MethodName
      */
-    public String getMethodName() {
+    public SimpleLeftValue getMethodName() {
         return MethodName;
     }
 
     /**
      * @param MethodName the MethodName to set
      */
-    public void setMethodName(String MethodName) {
+    public void setMethodName(SimpleLeftValue MethodName) {
         this.MethodName = MethodName;
     }
 
